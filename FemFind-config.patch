@@ -1,0 +1,30 @@
+--- ./femfind.conf.org	Fri May 31 23:03:00 2002
++++ ./femfind.conf	Fri May 31 23:04:08 2002
+@@ -23,7 +23,7 @@
+ smb_password		
+ 	
+ # If you do not want logs, put /dev/null in here
+-logfile_path		/home/femfind
++logfile_path		/var/log
+ 
+ # The path where your samba binaries are (find it out with 'which smbclient')
+ # Both smbclient and nmblookup have to be installed and properly set up
+@@ -34,15 +34,15 @@
+ #
+ # This file is generated/can be edited with crawler.pl --modify, which places it
+ # in the same directory 
+-db_modfile_path		/home/femfind
++db_modfile_path		/var/lib/femfind
+ 
+ # The path to the file with all ftp servers that have to be crawled (ftp_list)
+ # (Default: your/http/cgi-bin/femfind, make sure the httpd can write to
+ # this file!)
+-ftpfile			/usr/local/httpd/cgi-bin/femfind
++ftpfile			/home/httpd/cgi-bin/femfind
+ 
+ # the path where the lockfile will be located
+-lockfile_path		/home/femfind
++lockfile_path		/var/lib/femfind
+ 
+ # ATTENTION - The db_* configuration has changed.
+ #			  db_name has been split up into three parts
