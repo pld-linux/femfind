@@ -86,7 +86,7 @@ install -d $RPM_BUILD_ROOT{%{_wwwsite},%{_cgisite}/german,/var/{lib/femfind,log}
 for i in Helper ConfigReader; do
 	cd modules/$i
 	%{__make} install DESTDIR=$RPM_BUILD_ROOT
-	cd ../../
+	cd ../..
 done
 
 install femfind.conf	$RPM_BUILD_ROOT%{_sysconfdir}
@@ -115,20 +115,23 @@ echo "Remember to init database running %{_sbindir}/makedb.pl"
 
 %files -n perl-FemFind-ConfigReader
 %defattr(644,root,root,755)
+# ??? see Helper
 %{perl_sitelib}/FemFind/*.pm
 
 %files -n perl-FemFind-Helper
 %defattr(644,root,root,755)
+# ??? see ConfigReader
 %{perl_sitelib}/FemFind/*.pm
-%{_mandir}/man3/FemFind::Helper.3pm.gz
+%{_mandir}/man3/FemFind::Helper.3pm*
 
 %files -n FemFind-cgi
 %defattr(644,root,root,755)
 %dir %{_cgisite}
 %dir %{_wwwsite}
+%dir %{_cgisite}/german
 %attr(755,root,root) %{_cgisite}/german/*.pl
-%attr(644,root,root) %{_cgisite}/german/*.html
+%{_cgisite}/german/*.html
 %attr(755,root,root) %{_cgisite}/*.pl
-%attr(644,root,root) %{_cgisite}/*.html
-%attr(644,root,root) %{_cgisite}/ftp_list
-%attr(644,root,root) %{_wwwsite}/*
+%{_cgisite}/*.html
+%{_cgisite}/ftp_list
+%{_wwwsite}/*
