@@ -14,6 +14,7 @@ Release:	2
 License:	GPL v2
 Group:		Networking/Utilities
 Source0:	http://www.codefactory.de/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	57de716507fb23ddb4fed17cd77cd038
 Patch0:		%{name}-config.patch
 URL:		http://femfind.sourceforge.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
