@@ -20,7 +20,7 @@
  # (Default: your/http/cgi-bin/femfind, make sure the httpd can write to
  # this file!)
 -ftpfile			/usr/local/httpd/cgi-bin/femfind
-+ftpfile			/home/httpd/cgi-bin/femfind
++ftpfile			/srv/httpd/cgi-bin/femfind
  
  # the path where the lockfile will be located
 -lockfile_path		/home/femfind
