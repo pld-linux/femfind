@@ -1,19 +1,22 @@
+#
 # TODO:
 # - include apache configuration to config
 # - pre/post play
 # - logrotate file
-
+# - fix ownership of the perl_vendorlib/FemFind directory
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	FemFind - crawl your network resources
 Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
 Name:		FemFind
 Version:	0.74
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Networking/Utilities
 Source0:	http://www.codefactory.de/downloads/%{name}-%{version}.tar.gz
 Patch0:		%{name}-config.patch
 URL:		http://femfind.sourceforge.net/
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wwwsite	/home/services/httpd/html/FemFind
@@ -70,12 +73,14 @@ Skrypty CGI do frontendu FemFinda.
 %build
 cd modules
 cd ConfigReader
-	perl Makefile.PL
-	%{__make}
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 cd ..
 cd Helper
-	perl Makefile.PL
-	%{__make}
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 cd ..
 
 %install
@@ -83,11 +88,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/sysconfig,%{_bindir},%{_sbindir}}
 install -d $RPM_BUILD_ROOT{%{_wwwsite},%{_cgisite}/german,/var/{lib/femfind,log}}
 
-for i in Helper ConfigReader; do
-	cd modules/$i
-	%{__make} install DESTDIR=$RPM_BUILD_ROOT
-	cd ../..
-done
+%{__make} install \
+	-C modules/ConfigReader \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	-C modules/Helper \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install femfind.conf	$RPM_BUILD_ROOT%{_sysconfdir}
 install makedb.pl	$RPM_BUILD_ROOT%{_sbindir}
@@ -116,13 +123,14 @@ echo "Remember to init database running %{_sbindir}/makedb.pl"
 %files -n perl-FemFind-ConfigReader
 %defattr(644,root,root,755)
 # ??? see Helper
-%{perl_sitelib}/FemFind/*.pm
+%{perl_vendorlib}/FemFind/*.pm
+%{_mandir}/man3/FemFind::ConfigReader.*
 
 %files -n perl-FemFind-Helper
 %defattr(644,root,root,755)
 # ??? see ConfigReader
-%{perl_sitelib}/FemFind/*.pm
-%{_mandir}/man3/FemFind::Helper.3pm*
+%{perl_vendorlib}/FemFind/*.pm
+%{_mandir}/man3/FemFind::Helper.*
 
 %files -n FemFind-cgi
 %defattr(644,root,root,755)
