@@ -29,10 +29,10 @@ Unix systems running Samba. Additionally FemFind crawls FTP servers
 and provides a web interface and a Windows client as frontends.
 
 %description -l pl
-FemFind jest programem przeszukuj±cym zasoby sieci udostêpnione
-poprzez protokó³ SMB na maszynach Windowsowych lub Uniksowych z
-dzia³aj±c± Samb±. Dodatkowo FemFind przeszukuje serwery FTP, dostarcza
-interfejs webowy oraz klienta Windowsowego jako frontend.
+FemFind jest programem przeszukuj±cym zasoby sieci udostêpnione poprzez 
+protokó³ SMB na maszynach windowsowych lub uniksowych z dzia³aj±c± Samb±. 
+Dodatkowo FemFind przeszukuje serwery FTP, dostarcza interfejs webowy 
+oraz klienta windowsowego jako frontend.
 
 %package -n perl-FemFind-ConfigReader
 Summary:	FemFind - crawl your network resources
