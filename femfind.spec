@@ -1,16 +1,18 @@
 # TODO:
 # - include apache configuration to config
 # - pre/post play
+# - logrotate file
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	FemFind - crawl your network resources
 Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
 Name:		FemFind
 Version:	0.74
-Release:	0.9
+Release:	1
 License:	GPL v2
 Group:		Networking/Utilities
 Source0:	http://www.codefactory.de/downloads/%{name}-%{version}.tar.gz
+Patch0:		%{name}-config.patch
 URL:		http://femfind.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,6 +65,7 @@ Skrypty CGI do frontendu FemFinda.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cd modules
@@ -78,7 +81,7 @@ cd ..
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/sysconfig,%{_bindir},%{_sbindir}}
-install -d $RPM_BUILD_ROOT{%{_wwwsite},%{_cgisite}/german}
+install -d $RPM_BUILD_ROOT{%{_wwwsite},%{_cgisite}/german,/var/{lib/femfind,log}}
 
 for i in Helper ConfigReader; do
 	cd modules/$i
@@ -93,12 +96,19 @@ install german/*	$RPM_BUILD_ROOT%{_cgisite}/german
 install cgi-bin/femfind/*	$RPM_BUILD_ROOT%{_cgisite}
 install htdocs/femfind/*	$RPM_BUILD_ROOT%{_wwwsite}
 
+touch $RPM_BUILD_ROOT/var/log/femfind.log
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+echo "Remember to init database running %{_sbindir}/makedb.pl"
 
 %files
 %defattr(644,root,root,755)
 %doc README
+%dir /var/lib/femfind
+%ghost /var/log/femfind.log
 %attr(644,root,root) %config(noreplace) %{_sysconfdir}/femfind.conf
 %attr(755,root,root) %{_sbindir}/makedb.pl
 %attr(755,root,root) %{_bindir}/crawler.pl
