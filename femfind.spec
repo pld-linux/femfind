@@ -20,8 +20,8 @@ URL:		http://femfind.sourceforge.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wwwsite	/home/services/httpd/html/FemFind
-%define		_cgisite	/home/services/httpd/cgi-bin/femfind
+%define		_wwwsite	/srv/httpd/html/FemFind
+%define		_cgisite	/srv/httpd/cgi-bin/femfind
 
 %description
 FemFind is a crawler for SMB shares which can be found on Windows or
