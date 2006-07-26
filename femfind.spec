@@ -117,7 +117,7 @@ echo "Remember to init database running %{_sbindir}/makedb.pl"
 %doc README
 %dir /var/lib/femfind
 %ghost /var/log/femfind.log
-%attr(644,root,root) %config(noreplace) %{_sysconfdir}/femfind.conf
+%config(noreplace) %{_sysconfdir}/femfind.conf
 %attr(755,root,root) %{_sbindir}/makedb.pl
 %attr(755,root,root) %{_bindir}/crawler.pl
 
