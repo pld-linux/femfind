@@ -8,7 +8,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	FemFind - crawl your network resources
-Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobÃ³w sieciowych
 Name:		FemFind
 Version:	0.74
 Release:	2
@@ -29,43 +29,43 @@ FemFind is a crawler for SMB shares which can be found on Windows or
 Unix systems running Samba. Additionally FemFind crawls FTP servers
 and provides a web interface and a Windows client as frontends.
 
-%description -l pl
-FemFind jest programem przeszukuj±cym zasoby sieci udostêpnione
-poprzez protokó³ SMB na maszynach windowsowych lub uniksowych z
-dzia³aj±c± Samb±. Dodatkowo FemFind przeszukuje serwery FTP, dostarcza
+%description -l pl.UTF-8
+FemFind jest programem przeszukujÄ…cym zasoby sieci udostÄ™pnione
+poprzez protokÃ³Å‚ SMB na maszynach windowsowych lub uniksowych z
+dziaÅ‚ajÄ…cÄ… SambÄ…. Dodatkowo FemFind przeszukuje serwery FTP, dostarcza
 interfejs WWW oraz klienta windowsowego jako frontend.
 
 %package -n perl-FemFind-ConfigReader
 Summary:	FemFind - crawl your network resources
-Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobÃ³w sieciowych
 Group:		Development/Languages/Perl
 
 %description -n perl-FemFind-ConfigReader
 FemFind::ConfigReader perl module for FemFind.
 
-%description -n perl-FemFind-ConfigReader -l pl
-Perlowy modu³ FemFind::ConfigReader dla FemFinda.
+%description -n perl-FemFind-ConfigReader -l pl.UTF-8
+Perlowy moduÅ‚ FemFind::ConfigReader dla FemFinda.
 
 %package -n perl-FemFind-Helper
 Summary:	FemFind - crawl your network resources
-Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobÃ³w sieciowych
 Group:		Development/Languages/Perl
 
 %description -n perl-FemFind-Helper
 FemFind::Helper perl module for FemFind.
 
-%description -n perl-FemFind-Helper -l pl
-Perlowy modu³ FemFind::Helper dla FemFinda.
+%description -n perl-FemFind-Helper -l pl.UTF-8
+Perlowy moduÅ‚ FemFind::Helper dla FemFinda.
 
 %package -n FemFind-cgi
 Summary:	FemFind - crawl your network resources
-Summary(pl):	FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobÃ³w sieciowych
 Group:		Networking/Utilities
 
 %description -n FemFind-cgi
 CGI scripts for FemFind frontend.
 
-%description -n FemFind-cgi -l pl
+%description -n FemFind-cgi -l pl.UTF-8
 Skrypty CGI do frontendu FemFinda.
 
 %prep
