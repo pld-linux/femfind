@@ -8,7 +8,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	FemFind - crawl your network resources
-Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):	FemFind - przeszukiwanie zasobów sieciowych
 Name:		FemFind
 Version:	0.74
 Release:	2
@@ -37,7 +37,7 @@ interfejs WWW oraz klienta windowsowego jako frontend.
 
 %package -n perl-FemFind-ConfigReader
 Summary:	FemFind - crawl your network resources
-Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):	FemFind - przeszukiwanie zasobów sieciowych
 Group:		Development/Languages/Perl
 
 %description -n perl-FemFind-ConfigReader
@@ -48,7 +48,7 @@ Perlowy moduł FemFind::ConfigReader dla FemFinda.
 
 %package -n perl-FemFind-Helper
 Summary:	FemFind - crawl your network resources
-Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):	FemFind - przeszukiwanie zasobów sieciowych
 Group:		Development/Languages/Perl
 
 %description -n perl-FemFind-Helper
@@ -59,7 +59,7 @@ Perlowy moduł FemFind::Helper dla FemFinda.
 
 %package -n FemFind-cgi
 Summary:	FemFind - crawl your network resources
-Summary(pl.UTF-8):   FemFind - przeszukiwanie zasobów sieciowych
+Summary(pl.UTF-8):	FemFind - przeszukiwanie zasobów sieciowych
 Group:		Networking/Utilities
 
 %description -n FemFind-cgi
