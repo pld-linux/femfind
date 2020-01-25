@@ -6,7 +6,6 @@
 # - logrotate file
 # - fix ownership of the perl_vendorlib/FemFind directory
 #
-%include	/usr/lib/rpm/macros.perl
 Summary:	FemFind - crawl your network resources
 Summary(pl.UTF-8):	FemFind - przeszukiwanie zasobów sieciowych
 Name:		FemFind
